@@ -27,13 +27,13 @@ describe('highlightGherkin', () => {
 
   it('marca o cabeçalho da tabela e transforma contatos em links', () => {
     const lines = highlightGherkin(
-      '      | canal    | endereço                     |\n      | LinkedIn | linkedin.com/in/nat-pandolfi |\n      | E-mail   | padawolf@gmail.com           |',
+      '      | canal    | endereço                     |\n      | LinkedIn | linkedin.com/in/nat-pandolfi |\n      | E-mail   | nataliaspandolfi@gmail.com   |',
     );
     expect(lines.every((l) => l.table)).toBe(true);
     expect(lines[0].html.startsWith('<span class="th">')).toBe(true);
     expect(lines[1].html.startsWith('<span class="th">')).toBe(false);
     expect(lines[1].html).toContain('href="https://linkedin.com/in/nat-pandolfi"');
-    expect(lines[2].html).toContain('href="mailto:padawolf@gmail.com"');
+    expect(lines[2].html).toContain('href="mailto:nataliaspandolfi@gmail.com"');
   });
 
   it('realça comentários e tags', () => {

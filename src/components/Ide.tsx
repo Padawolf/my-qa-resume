@@ -302,7 +302,7 @@ export default function Ide({ lang, files, base }: Props) {
               <p>
                 {t.role}
                 <br />
-                {t.company}
+                {t.location}
               </p>
               <div className="tags">
                 <span>@web</span>

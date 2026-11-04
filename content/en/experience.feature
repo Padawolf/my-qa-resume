@@ -2,26 +2,40 @@
 
 @experience
 Feature: Work experience
-  Three companies and the same mission: fewer defects reaching users
+  Less about where, more about what was done,
+  always with the same mission: fewer bugs reaching users
 
-  @current
-  Scenario: QA Engineer at Zup Innovation (Dec 2022 – present)
+  Scenario: Web, mobile and API test automation
     Given large-scale, high-traffic systems
     When a new feature starts being developed
-    Then I lead test automation across web, mobile and APIs
-    And I run the performance tests
-    And I integrate the automated suites into CI/CD pipelines
-    And I work with POs and engineering to reduce defects through Shift Left
+    Then web, mobile and API test automation starts along with it
+    And the automated suites run in CI/CD as a quality gate for every delivery
 
-  Scenario: Test Specialist at IBM (Jun 2022 – Dec 2022)
+  Scenario: Performance and load testing
+    Given a system that has to handle real traffic
+    When it's time to find out how far it can go
+    Then performance and load tests show the limit before users do
+
+  Scenario: Test strategy
     Given web, mobile and API-driven applications
-    When we had to decide how to test them
-    Then I defined and executed the test strategies
-    And I built and maintained automated suites for continuous integration
-    And I promoted QA best practices, BDD and quality standards across teams
+    When the team has to decide what to test, how, and how far
+    Then the test strategy is defined and executed from the start
 
-  Scenario: QA Analyst at Keeggo (Jan 2022 – Jun 2022)
-    Given several platforms to cover
-    Then I ran manual and automated tests
-    And I wrote scenarios aligned with business requirements and acceptance criteria
-    And I worked side by side with developers to find and fix defects
+  @ai
+  Scenario: AI applied to infrastructure testing
+    Given a knowledge base built to read infrastructure-as-code (IaC) projects
+    When a project declares resources such as S3 buckets, access policies and authorization rules
+    Then automated tests are generated from that reading
+    And they validate that each resource was created and behaves as the project describes
+
+  @ai
+  Scenario: AI applied to kicking off projects
+    Given a knowledge base built to read APIs
+    When a new project has to start from scratch
+    Then it helps build the skeleton of the test automation repository
+    And the team starts from a ready structure instead of an empty folder
+
+  Scenario: Quality culture
+    Given teams with different levels of testing maturity
+    Then BDD and QA best practices spread across teams, one scenario at a time
+    And the work with developers is side by side, from "found a bug" to "fixed and tested"

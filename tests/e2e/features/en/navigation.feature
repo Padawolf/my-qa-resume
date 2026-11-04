@@ -12,7 +12,7 @@ Feature: Browse the IDE files
   Scenario: Open a file from the project window
     When I click the file "experience.feature" in the project window
     Then the editor shows the file "experience.feature"
-    And the editor contains "QA Engineer at Zup Innovation"
+    And the editor contains "Web, mobile and API test automation"
 
   Scenario: Open a file from a direct link
     When I visit the address with "#skills"

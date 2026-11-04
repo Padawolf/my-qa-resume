@@ -1,6 +1,6 @@
 # natalia-pandolfi-qa
 
-Site pessoal da **Natalia Pandolfi, Senior QA Engineer**. Ele imita uma IDE de tela azul dos anos 90, a apresentação é escrita em Gherkin (em português e em inglês) e os testes do próprio site rodam com **Playwright + BDD** a cada push. O painel "Saída" mostra o resultado real da última execução do CI.
+Site pessoal da **Natalia Pandolfi, QA Engineer**. Ele imita uma IDE de tela azul dos anos 90, a apresentação é escrita em Gherkin (em português e em inglês) e os testes do próprio site rodam com **Playwright + BDD** a cada push. O painel "Saída" mostra o resultado real da última execução do CI.
 
 ```gherkin
 # language: pt

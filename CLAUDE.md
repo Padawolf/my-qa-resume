@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Site pessoal da Natalia Pandolfi (Senior QA Engineer): uma IDE vintage em Astro + React onde a apresentação é escrita em Gherkin, em português e em inglês. Veja o README.md para a visão geral.
+Site pessoal da Natalia Pandolfi (QA Engineer): uma IDE vintage em Astro + React onde a apresentação é escrita em Gherkin, em português e em inglês. Veja o README.md para a visão geral.
 
 ## Comandos
 

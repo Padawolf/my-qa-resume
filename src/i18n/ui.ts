@@ -3,9 +3,9 @@ import type { Lang } from '../data/types';
 export const UI = {
   pt: {
     htmlLang: 'pt-BR',
-    title: 'Natalia Pandolfi · Senior QA Engineer',
+    title: 'Natalia Pandolfi · QA Engineer',
     description:
-      'Natalia Pandolfi, Senior QA Engineer na Zup Innovation. Automação de testes web, mobile e de APIs, performance, BDD e Shift Left, apresentados em Gherkin.',
+      'Natalia Pandolfi, QA Engineer. Python, Java e TypeScript, automação de testes web, mobile e de APIs, performance, IA aplicada a testes, BDD e Shift Left, apresentados em Gherkin.',
     menuFile: 'Arquivo',
     menuRun: 'Executar testes',
     menuHelp: 'Ajuda',
@@ -28,11 +28,11 @@ export const UI = {
     tsLabel: 'TypeScript · UTF-8',
     position: (l: number, c: number) => `Ln ${l}, Col ${c}`,
     e2eHint: 'Testes reais: rodam com Playwright + BDD a cada push',
-    role: 'Senior QA Engineer',
-    company: 'Zup Innovation · Osasco, SP',
+    role: 'QA Engineer',
+    location: 'Cotia, SP',
     helpTitle: 'Turbo Gherkin 2.0',
     helpBody: [
-      'Este site é a apresentação da Natalia Pandolfi, Senior QA Engineer, escrita como uma suíte de testes. Cada arquivo em features/ conta uma parte da história em Gherkin.',
+      'Este site é a apresentação da Natalia Pandolfi, QA Engineer, escrita como uma suíte de testes. Cada arquivo em features/ conta uma parte da história em Gherkin.',
       'A pasta e2e/ tem os testes de verdade do site. Eles rodam com Playwright + BDD no GitHub Actions, e a janela Saída mostra o resultado da última execução.',
     ],
     helpKeys: 'Atalhos: F9 executa, F1 abre esta ajuda, Alt+1 a Alt+5 trocam de arquivo, Esc fecha.',
@@ -69,9 +69,9 @@ export const UI = {
   },
   en: {
     htmlLang: 'en',
-    title: 'Natalia Pandolfi · Senior QA Engineer',
+    title: 'Natalia Pandolfi · QA Engineer',
     description:
-      'Natalia Pandolfi, Senior QA Engineer at Zup Innovation. Web, mobile and API test automation, performance testing, BDD and Shift Left, written in Gherkin.',
+      'Natalia Pandolfi, QA Engineer. Python, Java and TypeScript, web, mobile and API test automation, performance testing, AI-assisted testing, BDD and Shift Left, written in Gherkin.',
     menuFile: 'File',
     menuRun: 'Run tests',
     menuHelp: 'Help',
@@ -94,11 +94,11 @@ export const UI = {
     tsLabel: 'TypeScript · UTF-8',
     position: (l: number, c: number) => `Ln ${l}, Col ${c}`,
     e2eHint: 'Real tests: run with Playwright + BDD on every push',
-    role: 'Senior QA Engineer',
-    company: 'Zup Innovation · Osasco, Brazil',
+    role: 'QA Engineer',
+    location: 'Cotia, SP, Brazil',
     helpTitle: 'Turbo Gherkin 2.0',
     helpBody: [
-      'This site introduces Natalia Pandolfi, Senior QA Engineer, written as a test suite. Each file in features/ tells part of the story in Gherkin.',
+      'This site introduces Natalia Pandolfi, QA Engineer, written as a test suite. Each file in features/ tells part of the story in Gherkin.',
       'The e2e/ folder holds the real tests for this site. They run with Playwright + BDD on GitHub Actions, and the Output window shows the latest run.',
     ],
     helpKeys: 'Shortcuts: F9 runs, F1 opens this help, Alt+1 to Alt+5 switch files, Esc closes.',

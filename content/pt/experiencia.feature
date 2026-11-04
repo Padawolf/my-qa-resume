@@ -2,26 +2,40 @@
 
 @experiencia
 Funcionalidade: Experiência profissional
-  Três empresas e a mesma missão: menos defeitos chegando ao usuário
+  Menos sobre onde, mais sobre o que foi feito,
+  sempre com a mesma missão: menos bugs chegando ao usuário
 
-  @atual
-  Cenário: QA Engineer na Zup Innovation (dez/2022 – atual)
+  Cenário: Automação de testes web, mobile e de APIs
     Dado sistemas de grande escala e alto tráfego
     Quando uma funcionalidade nova começa a ser desenvolvida
-    Então eu lidero a automação de testes de web, mobile e APIs
-    E executo os testes de performance
-    E integro as suítes automatizadas aos pipelines de CI/CD
-    E trabalho com POs e engenharia para reduzir defeitos com Shift Left
+    Então a automação de testes de web, mobile e APIs começa junto com ela
+    E as suítes automatizadas rodam no CI/CD como quality gate de cada entrega
 
-  Cenário: Test Specialist na IBM (jun/2022 – dez/2022)
+  Cenário: Testes de performance e de carga
+    Dado um sistema que precisa aguentar o tráfego real
+    Quando chega a hora de saber até onde ele vai
+    Então testes de performance e de carga mostram o limite antes do usuário
+
+  Cenário: Estratégia de testes
     Dado aplicações web, mobile e orientadas a APIs
-    Quando era preciso decidir como testar
-    Então eu defini e executei as estratégias de teste
-    E desenvolvi e mantive suítes automatizadas para integração contínua
-    E promovi boas práticas de QA, BDD e padrões de qualidade entre os times
+    Quando o time precisa decidir o que testar, como e até onde
+    Então a estratégia de testes é definida e executada desde o começo
 
-  Cenário: QA Analyst na Keeggo (jan/2022 – jun/2022)
-    Dado várias plataformas para cobrir
-    Então eu executei testes manuais e automatizados
-    E criei cenários alinhados aos requisitos de negócio e aos critérios de aceite
-    E trabalhei lado a lado com devs para encontrar e resolver defeitos
+  @ia
+  Cenário: IA aplicada a testes de infraestrutura
+    Dado uma base de conhecimento construída para ler projetos de infraestrutura como código (IaC)
+    Quando um projeto declara recursos como buckets S3, políticas de acesso e regras de autorização
+    Então testes automatizados são gerados a partir dessa leitura
+    E validam que cada recurso foi criado e se comporta como o projeto descreve
+
+  @ia
+  Cenário: IA aplicada ao início de projetos
+    Dado uma base de conhecimento construída para ler APIs
+    Quando um projeto novo precisa sair do zero
+    Então ela ajuda a montar o esqueleto do repositório de testes automatizados
+    E o time começa de uma estrutura pronta em vez de uma pasta vazia
+
+  Cenário: Cultura de qualidade
+    Dado times com níveis diferentes de maturidade em testes
+    Então BDD e boas práticas de QA se espalham entre os times, um cenário de cada vez
+    E o trabalho com devs é lado a lado, do "achei um bug" até o "corrigido e testado"

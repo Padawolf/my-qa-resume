@@ -12,7 +12,7 @@ Funcionalidade: Navegar pelos arquivos da IDE
   Cenário: Abrir um arquivo pela janela de projeto
     Quando eu clico no arquivo "experiencia.feature" na janela de projeto
     Então o editor mostra o arquivo "experiencia.feature"
-    E o editor contém "QA Engineer na Zup Innovation"
+    E o editor contém "Automação de testes web, mobile e de APIs"
 
   Cenário: Abrir um arquivo por link direto
     Quando eu acesso o endereço com "#skills"

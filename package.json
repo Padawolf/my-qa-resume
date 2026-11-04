@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Site pessoal da Natalia Pandolfi, Senior QA Engineer: uma IDE vintage onde a apresentação é escrita em Gherkin e os testes do próprio site rodam com Playwright + BDD.",
+  "description": "Site pessoal da Natalia Pandolfi, QA Engineer: uma IDE vintage onde a apresentação é escrita em Gherkin e os testes do próprio site rodam com Playwright + BDD.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
