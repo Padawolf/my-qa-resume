@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { AstBuilder, GherkinClassicTokenMatcher, Parser, compile } from '@cucumber/gherkin';
 import { IdGenerator } from '@cucumber/messages';
-import { CONTENT } from '../../src/data/content-map';
+import { CONTENT, E2E } from '../../src/data/content-map';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 
@@ -39,11 +39,21 @@ describe('conteúdo da apresentação', () => {
 });
 
 describe('features E2E', () => {
-  for (const file of featuresIn('tests/e2e/features')) {
-    it(`${file} é Gherkin válido em português`, () => {
-      const { doc, pickles } = parse(`tests/e2e/features/${file}`);
-      expect(doc.feature?.language).toBe('pt');
-      expect(pickles.length).toBeGreaterThan(0);
+  for (const lang of ['pt', 'en'] as const) {
+    it(`tests/e2e/features/${lang} tem exatamente os arquivos do mapa E2E`, () => {
+      expect(featuresIn(`tests/e2e/features/${lang}`).sort()).toEqual(E2E.map((e) => e[lang]).sort());
+    });
+  }
+
+  for (const entry of E2E) {
+    it(`${entry.pt} e ${entry.en} (E2E) são Gherkin válido e têm os mesmos cenários`, () => {
+      const pt = parse(`tests/e2e/features/pt/${entry.pt}`);
+      const en = parse(`tests/e2e/features/en/${entry.en}`);
+      expect(pt.doc.feature?.language).toBe('pt');
+      expect(en.doc.feature?.language).toBe('en');
+      expect(pt.pickles.length).toBeGreaterThan(0);
+      expect(pt.pickles.length).toBe(en.pickles.length);
+      expect(pt.pickles.map((p) => p.steps.length)).toEqual(en.pickles.map((p) => p.steps.length));
     });
   }
 });

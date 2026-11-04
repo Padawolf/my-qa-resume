@@ -40,8 +40,9 @@ src/
   i18n/ui.ts              textos da interface nos dois idiomas
 tests/
   unit/                   Vitest
-  e2e/features/           cenários E2E (também aparecem no site, pasta e2e/)
-  e2e/steps/site.steps.ts step definitions (também aparecem no site)
+  e2e/features/pt/        cenários E2E em português, contra o site em português (pasta e2e/ do site)
+  e2e/features/en/        os mesmos cenários em inglês, contra o site em inglês
+  e2e/steps/site.steps.ts step definitions, cada passo nas duas línguas (também aparece no site)
   e2e/fixtures/           relatórios falsos usados para simular a rede
 scripts/
   summarize-report.mjs    converte reports/cucumber.json em last-run.json
@@ -88,7 +89,7 @@ Para criar um arquivo novo, adicione os dois `.feature` e uma entrada em `src/da
 
 ## Como o painel "Saída" funciona
 
-1. O Playwright roda os cenários de `tests/e2e/features/` e grava `reports/cucumber.json`.
+1. O Playwright roda os cenários de `tests/e2e/features/pt/` e `tests/e2e/features/en/` e grava `reports/cucumber.json`. O site mostra só os do idioma da página.
 2. `scripts/summarize-report.mjs` converte esse relatório em `dist/last-run.json`, com commit, link da execução, cenários e tempos.
 3. O site baixa `last-run.json` e, ao clicar em **Executar** (ou apertar F9), reproduz essa execução linha por linha.
 

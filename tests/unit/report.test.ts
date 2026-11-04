@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { countLine, formatDuration, formatNoReport, formatRun, isRunReport, totals } from '../../src/lib/report';
+import { countLine, formatDuration, formatNoReport, formatRun, isRunReport, reportForLang, totals } from '../../src/lib/report';
 import type { RunReport } from '../../src/lib/report';
 import { cucumberToRun } from '../../scripts/cucumber-to-run.mjs';
 
@@ -92,5 +92,29 @@ describe('cucumberToRun', () => {
     expect(fail.steps).toEqual({ passed: 1, failed: 1, skipped: 1 });
     expect(fail.error).toBe('Error: timeout');
     expect(run.durationMs).toBe(1650);
+  });
+});
+
+describe('reportForLang', () => {
+  const sc = (name: string, durationMs: number) => ({ name, status: 'passed' as const, durationMs, steps: { passed: 1, failed: 0, skipped: 0 } });
+  const run: RunReport = {
+    generatedAt: '2026-11-04T00:00:00.000Z',
+    durationMs: 600,
+    features: [
+      { name: 'Navegar', uri: 'tests/e2e/features/pt/navegacao.feature', scenarios: [sc('Abrir', 100)] },
+      { name: 'Browse', uri: String.raw`tests\e2e\features\en\navigation.feature`, scenarios: [sc('Open', 200), sc('Switch', 300)] },
+    ],
+  };
+
+  it('mostra só as features do idioma da página e recalcula a duração', () => {
+    expect(reportForLang(run, 'pt').features.map((f) => f.name)).toEqual(['Navegar']);
+    expect(reportForLang(run, 'pt').durationMs).toBe(100);
+    expect(reportForLang(run, 'en').features.map((f) => f.name)).toEqual(['Browse']);
+    expect(reportForLang(run, 'en').durationMs).toBe(500);
+  });
+
+  it('mantém relatórios sem pasta de idioma como estão', () => {
+    const antigo = fixture('aprovado');
+    expect(reportForLang(antigo, 'en')).toBe(antigo);
   });
 });

@@ -10,3 +10,16 @@ export const CONTENT = [
   { id: 'education', pt: 'formacao.feature', en: 'education.feature' },
   { id: 'contact', pt: 'contato.feature', en: 'contact.feature' },
 ] as const;
+
+/**
+ * Features E2E. Existem em `tests/e2e/features/pt` e `tests/e2e/features/en` e as duas versões
+ * rodam no CI, cada uma contra o site no seu idioma. O mesmo `id` mantém o arquivo aberto ao
+ * trocar de idioma, e o `tests/unit/content.test.ts` garante que as duas têm os mesmos cenários.
+ */
+export const E2E = [
+  { id: 'e2e-accessibility', pt: 'acessibilidade.feature', en: 'accessibility.feature' },
+  { id: 'e2e-execution', pt: 'execucao.feature', en: 'execution.feature' },
+  { id: 'e2e-language', pt: 'idioma.feature', en: 'language.feature' },
+  { id: 'e2e-navigation', pt: 'navegacao.feature', en: 'navigation.feature' },
+  { id: 'e2e-performance', pt: 'performance.feature', en: 'performance.feature' },
+] as const;

@@ -22,7 +22,7 @@ O projeto foi escrito numa sessão sem acesso ao npm. Por isso **ainda não pass
 
 - **Conteúdo:** `content/pt/*.feature` e `content/en/*.feature` precisam ter os mesmos cenários e o mesmo número de passos. O `tests/unit/content.test.ts` garante isso. Novos arquivos também entram em `src/data/content-map.ts`.
 - **Ids dos arquivos** (`about`, `experience`, ...) são iguais nos dois idiomas e servem de `#hash`. Trocar de idioma mantém o arquivo aberto.
-- **E2E:** cenários em português (`# language: pt`), em `tests/e2e/features/`. Os steps ficam em `tests/e2e/steps/site.steps.ts`. Esses arquivos também aparecem no site, então mantenha-os legíveis.
+- **E2E:** cada cenário existe em `tests/e2e/features/pt/` (`# language: pt`, contra o site em português) e em `tests/e2e/features/en/` (`# language: en`, contra o site em inglês), com o mesmo número de cenários e de passos. O `content.test.ts` garante isso, e arquivos novos entram no `E2E` de `src/data/content-map.ts`. Os steps ficam em `tests/e2e/steps/site.steps.ts`, cada passo registrado nas duas línguas com `step(Given, pt, en, fn)`. Esses arquivos também aparecem no site, então mantenha-os legíveis.
 - **Interação nos testes:** espere `.ide[data-ready="true"]` antes de interagir, porque a IDE é uma ilha React hidratada no cliente.
 - **Relatório do CI:** `last-run.json` segue `RunReport` (`src/lib/report.ts`). Nos E2E ele é simulado com `page.route()` usando `tests/e2e/fixtures/`.
 - **Visual:** é um tema único. Os tokens de cor ficam em `src/styles/ide.css`. Mantenha o contraste WCAG AA, porque o cenário de acessibilidade com axe falha se não for respeitado.
