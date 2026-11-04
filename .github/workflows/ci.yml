@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Testes e build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Definir caminho do GitHub Pages
+        run: |
+          REPO="${{ github.event.repository.name }}"
+          if [[ "$REPO" == *.github.io ]]; then echo "BASE_PATH=/" >> "$GITHUB_ENV"; else echo "BASE_PATH=/$REPO/" >> "$GITHUB_ENV"; fi
+          echo "SITE_URL=https://${{ github.repository_owner }}.github.io" >> "$GITHUB_ENV"
+
+      - name: Instalar dependências
+        run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Checagem de tipos (astro check)
+        run: npm run check
+
+      - name: Testes unitários (Vitest)
+        run: npm run test:unit
+
+      - name: Build do site
+        run: npm run build
+
+      - name: Instalar o Chromium do Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Testes E2E (Playwright + BDD)
+        run: npm run test:e2e
+
+      - name: Publicar o resultado no site (last-run.json)
+        if: always() && hashFiles('reports/cucumber.json') != ''
+        run: node scripts/summarize-report.mjs reports/cucumber.json dist/last-run.json
+
+      - name: Guardar relatórios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-de-teste
+          path: reports/
+          if-no-files-found: ignore
+
+      - name: Preparar artefato do GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy no GitHub Pages
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

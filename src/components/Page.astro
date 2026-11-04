@@ -1,0 +1,51 @@
+---
+import '../styles/ide.css';
+import Ide from './Ide';
+import { getFiles } from '../data/files';
+import { UI } from '../i18n/ui';
+import type { Lang } from '../data/types';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang];
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+const files = getFiles(lang);
+
+const site = Astro.site ?? new URL('https://example.github.io');
+const ptUrl = new URL(base, site).href;
+const enUrl = new URL(base + 'en/', site).href;
+const canonical = lang === 'pt' ? ptUrl : enUrl;
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="pt-BR" href={ptUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={ptUrl} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={t.title} />
+    <meta property="og:description" content={t.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta name="theme-color" content="#0000aa" />
+    <link rel="icon" type="image/svg+xml" href={base + 'favicon.svg'} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Ide client:load lang={lang} files={files} base={base} />
+  </body>
+</html>

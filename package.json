@@ -1,0 +1,39 @@
+{
+  "name": "natalia-pandolfi-qa",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site pessoal da Natalia Pandolfi, Senior QA Engineer: uma IDE vintage onde a apresentação é escrita em Gherkin e os testes do próprio site rodam com Playwright + BDD.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:unit": "vitest run",
+    "test:e2e": "bddgen && playwright test",
+    "report": "node scripts/summarize-report.mjs reports/cucumber.json public/last-run.json",
+    "test": "npm run test:unit && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.0",
+    "astro": "^5.7.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@axe-core/playwright": "^4.10.0",
+    "@cucumber/gherkin": "^30.0.0",
+    "@cucumber/messages": "^26.0.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "playwright-bdd": "^8.3.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-11-04T19:48:12.000Z",
+  "commit": "a1b2c3d",
+  "runUrl": "https://github.com/exemplo/natalia-pandolfi-qa/actions/runs/1",
+  "durationMs": 4213,
+  "features": [
+    {
+      "name": "Navegar pelos arquivos da IDE",
+      "uri": "tests/e2e/features/navegacao.feature",
+      "scenarios": [
+        { "name": "Abrir um arquivo pela janela de projeto", "status": "passed", "durationMs": 1210, "steps": { "passed": 4, "failed": 0, "skipped": 0 } },
+        { "name": "Trocar de arquivo pelo teclado", "status": "passed", "durationMs": 830, "steps": { "passed": 3, "failed": 0, "skipped": 0 } }
+      ]
+    },
+    {
+      "name": "Ler o site em português ou em inglês",
+      "uri": "tests/e2e/features/idioma.feature",
+      "scenarios": [
+        { "name": "Trocar para inglês", "status": "passed", "durationMs": 1102, "steps": { "passed": 5, "failed": 0, "skipped": 0 } },
+        { "name": "Voltar para português sem perder o arquivo aberto", "status": "passed", "durationMs": 1071, "steps": { "passed": 5, "failed": 0, "skipped": 0 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-11-04T19:52:40.000Z",
+  "commit": "e4f5a6b",
+  "durationMs": 5120,
+  "features": [
+    {
+      "name": "Navegar pelos arquivos da IDE",
+      "uri": "tests/e2e/features/navegacao.feature",
+      "scenarios": [
+        { "name": "Abrir um arquivo pela janela de projeto", "status": "passed", "durationMs": 1190, "steps": { "passed": 4, "failed": 0, "skipped": 0 } },
+        { "name": "Abrir um arquivo por link direto", "status": "passed", "durationMs": 760, "steps": { "passed": 3, "failed": 0, "skipped": 0 } },
+        { "name": "Trocar de arquivo pelo teclado", "status": "failed", "durationMs": 2410, "steps": { "passed": 2, "failed": 1, "skipped": 0 }, "error": "expect(locator).toHaveText(\"contato.feature\") recebeu \"sobre_mim.feature\"" }
+      ]
+    },
+    {
+      "name": "Acessibilidade",
+      "uri": "tests/e2e/features/acessibilidade.feature",
+      "scenarios": [
+        { "name": "Abrir e fechar a ajuda pelo teclado", "status": "passed", "durationMs": 760, "steps": { "passed": 5, "failed": 0, "skipped": 0 } }
+      ]
+    }
+  ]
+}
