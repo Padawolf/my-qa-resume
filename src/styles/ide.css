@@ -117,7 +117,10 @@ a { color: inherit; }
 .win > .wbtn.r { right: 8px; }
 
 /* Projeto */
-.proj { grid-area: proj; --wbg: var(--panel); --wtitle: var(--ink); background: var(--panel); color: var(--ink); position: sticky; top: 52px; }
+/* A coluna lateral rola junto com a página: fixa, o fim do teste de performance ficaria
+   escondido atrás da barra de status em telas mais baixas. */
+.side { grid-area: proj; display: flex; flex-direction: column; gap: 26px; }
+.proj { --wbg: var(--panel); --wtitle: var(--ink); background: var(--panel); color: var(--ink); }
 .proj > .wbtn.l b { color: var(--ink); }
 .tree, .tree ul { list-style: none; margin: 0; padding: 0; }
 .tree { font-size: 20px; }
@@ -199,6 +202,69 @@ a { color: inherit; }
 .o-sum { color: #fff; font-weight: 600; }
 .o-build-ok { color: var(--ok); font-weight: 600; }
 .o-build-fail { color: var(--bad); font-weight: 600; }
+
+/* Teste de performance (abaixo do Projeto) */
+.perf { --wbg: #000; --frame: var(--chrome); --wtitle: var(--chrome); background: #000; color: #c0c0c0; }
+.perf > .wbtn.l b { color: var(--bad); }
+.perf form { display: flex; flex-direction: column; gap: 4px; }
+.perf-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.perf-num {
+  font: inherit;
+  width: 8.5ch;
+  text-align: right;
+  background: var(--editor);
+  color: var(--kw);
+  border: 0;
+  border-bottom: 2px solid var(--panel);
+  padding: 0 6px;
+}
+.perf-num:disabled { color: #c0c0c0; }
+.perf input[type='range'] { width: 100%; accent-color: var(--ok); margin: 6px 0 0; }
+.perf-scale { display: flex; justify-content: space-between; font-size: 16px; color: #9a9a9a; }
+.perf-hint { margin: 2px 0 8px; font-family: var(--font-code); font-size: 13px; font-style: italic; color: var(--cm); }
+.perf .run { align-self: flex-start; }
+.perf-out { min-height: 6.4em; margin-top: 12px; border-top: 1px solid #444; padding-top: 8px; font-size: 13px; }
+.bug-rain { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 40; }
+.perf-hud {
+  position: fixed;
+  top: 44px;
+  right: 16px;
+  z-index: 45;
+  pointer-events: none;
+  background: #000;
+  color: var(--ok);
+  border: 3px double var(--chrome);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.75);
+  padding: 2px 12px;
+  min-width: 12ch;
+  min-height: 1.6em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Easter egg: um bilhão de bugs */
+.crash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  color: #c0c0c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: pointer;
+  font-family: var(--font-code);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.crash:focus { outline: none; }
+.crash-box { max-width: 640px; }
+.crash h2 { font-family: var(--font-ui); font-weight: normal; font-size: 56px; color: var(--bad); margin: 0 0 16px; letter-spacing: 2px; }
+.crash p { margin: 0 0 10px; }
+.crash-scenario { color: var(--ok); margin: 16px 0; white-space: pre-wrap; font: inherit; }
+.crash-key { color: #fff; margin-top: 24px; }
+.crash .cursor { background: #c0c0c0; }
 
 /* Barra de status */
 .status {

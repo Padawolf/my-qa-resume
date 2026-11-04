@@ -1,11 +1,12 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { AstBuilder, GherkinClassicTokenMatcher, Parser, compile } from '@cucumber/gherkin';
 import { IdGenerator } from '@cucumber/messages';
 import { CONTENT } from '../../src/data/content-map';
 
-const ROOT = new URL('../../', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 
 /** Faz o parse com o parser oficial do Cucumber e devolve os "pickles" (cenários executáveis). */
 function parse(file: string) {
