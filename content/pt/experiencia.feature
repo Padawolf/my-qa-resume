@@ -2,40 +2,35 @@
 
 @experiencia
 Funcionalidade: Experiência profissional
-  Menos sobre onde, mais sobre o que foi feito,
-  sempre com a mesma missão: menos bugs chegando ao usuário
 
   Cenário: Automação de testes web, mobile e de APIs
-    Dado sistemas de grande escala e alto tráfego
+    Dado sistemas grandes, com muito tráfego
     Quando uma funcionalidade nova começa a ser desenvolvida
-    Então a automação de testes de web, mobile e APIs começa junto com ela
-    E as suítes automatizadas rodam no CI/CD como quality gate de cada entrega
+    Então escrevo os testes automatizados de web, mobile e APIs junto com ela
+    E coloco essas suítes para rodar no pipeline de CI/CD
 
   Cenário: Testes de performance e de carga
-    Dado um sistema que precisa aguentar o tráfego real
-    Quando chega a hora de saber até onde ele vai
-    Então testes de performance e de carga mostram o limite antes do usuário
+    Dado um sistema que vai receber muitos acessos
+    Então planejo e rodo os testes de performance e de carga para saber até onde ele aguenta
 
   Cenário: Estratégia de testes
-    Dado aplicações web, mobile e orientadas a APIs
-    Quando o time precisa decidir o que testar, como e até onde
-    Então a estratégia de testes é definida e executada desde o começo
+    Dado aplicações web, mobile e de APIs
+    Quando o time precisa decidir o que testar e como
+    Então defino a estratégia de testes e acompanho a execução com o time
 
   @ia
-  Cenário: IA aplicada a testes de infraestrutura
-    Dado uma base de conhecimento construída para ler projetos de infraestrutura como código (IaC)
-    Quando um projeto declara recursos como buckets S3, políticas de acesso e regras de autorização
-    Então testes automatizados são gerados a partir dessa leitura
-    E validam que cada recurso foi criado e se comporta como o projeto descreve
+  Cenário: Testes de infraestrutura gerados com IA
+    Dado que criei uma base de conhecimento que lê projetos de infraestrutura como código
+    Quando o projeto declara recursos como buckets S3, políticas de acesso e regras de autorização
+    Então ela gera testes automatizados que conferem se cada recurso foi criado e funciona como o projeto descreve
 
   @ia
-  Cenário: IA aplicada ao início de projetos
-    Dado uma base de conhecimento construída para ler APIs
-    Quando um projeto novo precisa sair do zero
-    Então ela ajuda a montar o esqueleto do repositório de testes automatizados
-    E o time começa de uma estrutura pronta em vez de uma pasta vazia
+  Cenário: Repositórios de automação a partir de APIs
+    Dado que criei outra base de conhecimento, que lê APIs
+    Quando uma automação de testes precisa começar do zero
+    Então ela ajuda a montar o esqueleto do repositório de testes
 
-  Cenário: Cultura de qualidade
-    Dado times com níveis diferentes de maturidade em testes
-    Então BDD e boas práticas de QA se espalham entre os times, um cenário de cada vez
-    E o trabalho com devs é lado a lado, do "achei um bug" até o "corrigido e testado"
+  Cenário: BDD e boas práticas
+    Dado times com jeitos diferentes de testar
+    Então ajudei a adotar BDD e boas práticas de QA
+    E trabalhei perto dos devs, do bug encontrado até a correção testada

@@ -13,26 +13,17 @@ Funcionalidade: Conhecer a Natalia Pandolfi
   Cenário: Apresentação
     Dado que meu nome é "Natalia Pandolfi"
     E que sou "QA Engineer"
-    Quando alguém pergunta o que uma QA faz por aqui
-    Então a resposta curta é "ajudar o time a encontrar o bug antes do usuário"
-    E a resposta longa está nos outros arquivos desta pasta
+    Quando alguém pergunta o que faço
+    Então conto que trabalho com automação de testes web, mobile e de APIs e com testes de performance
+    E que gosto de entrar no projeto cedo, ainda na discovery
 
-  Cenário: Qualidade desde a discovery
-    Dado que uma ideia nova ainda está no papel
-    Quando o time começa a discovery
-    Então a QA já participa da conversa com o Product Owner
-    E requisitos, critérios de aceite e cenários de teste nascem juntos
-    Mas o teste não espera o código ficar pronto para começar
+  Cenário: Como gosto de trabalhar
+    Dado um time começando uma funcionalidade nova
+    Então converso com o Product Owner antes de o código existir
+    E ajudo a escrever os requisitos, os critérios de aceite e os cenários de teste
+    E explico os riscos de um jeito que quem não é técnico também entenda
 
-  Cenário: Como é trabalhar junto
-    Dado que qualidade é responsabilidade do time inteiro
-    Então riscos técnicos são explicados para quem não é técnico
-    E a pergunta incômoda aparece no refinamento, antes de virar incidente em produção
-    E o conhecimento é compartilhado, porque QA não é gargalo nem porteiro do deploy
-
-  Cenário: Este site também é testado
-    Dado que um currículo aceita qualquer coisa que se escreva nele
-    Quando você abre a pasta "e2e/" aqui ao lado
-    Então encontra os testes deste site em "Playwright" e "TypeScript", escritos em BDD
-    E eles verificam acessibilidade com "axe", os dois idiomas e a performance
-    E rodam no GitHub Actions a cada push, com o resultado na janela "Saída"
+  Cenário: Sobre este site
+    Dado que montei este site como uma IDE antiga, com a apresentação em Gherkin
+    Então o código e os testes dele estão no GitHub, no link da janela de projeto
+    E o meu currículo em PDF também está lá, para baixar

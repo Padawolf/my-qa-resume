@@ -13,26 +13,17 @@ Feature: Meet Natalia Pandolfi
   Scenario: Introduction
     Given my name is "Natalia Pandolfi"
     And I am a "QA Engineer"
-    When someone asks what a QA does around here
-    Then the short answer is "helping the team find the bug before the user does"
-    And the long answer is in the other files in this folder
+    When someone asks what I do
+    Then I tell them I work on web, mobile and API test automation and on performance testing
+    And that I like to join a project early, while it's still in discovery
 
-  Scenario: Quality from discovery onwards
-    Given a new idea is still on paper
-    When the team starts discovery
-    Then QA is already part of the conversation with the Product Owner
-    And requirements, acceptance criteria and test scenarios are written together
-    But testing doesn't wait for the code to be ready
+  Scenario: How I like to work
+    Given a team starting on a new feature
+    Then I talk to the Product Owner before any code exists
+    And I help write the requirements, the acceptance criteria and the test scenarios
+    And I explain risks in a way that non-technical people can follow too
 
-  Scenario: What working together looks like
-    Given quality is the whole team's responsibility
-    Then technical risks are explained to non-technical people
-    And the uncomfortable question comes up during refinement, before it becomes a production incident
-    And knowledge is shared, because QA is neither a bottleneck nor the deploy's bouncer
-
-  Scenario: This site is tested too
-    Given a résumé will accept anything you write on it
-    When you open the "e2e/" folder right here
-    Then you find this site's tests in "Playwright" and "TypeScript", written in BDD
-    And they check accessibility with "axe", both languages and performance
-    And they run on GitHub Actions on every push, with the result in the "Output" window
+  Scenario: About this site
+    Given I built this site as an old-school IDE, with the introduction in Gherkin
+    Then its code and tests are on GitHub, linked in the project window
+    And my PDF résumé is there too, ready to download

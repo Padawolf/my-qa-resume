@@ -1,13 +1,11 @@
 # language: pt
 
 @habilidades
-Funcionalidade: Caixa de ferramentas
-  Ferramenta boa é a que resolve o problema do time
+Funcionalidade: Habilidades
 
-  Esquema do Cenário: Automatizar testes de <camada>
-    Dado um sistema com a camada "<camada>"
-    Quando ela precisa de testes automatizados
-    Então a escolha é "<ferramentas>"
+  Esquema do Cenário: Testes de <camada>
+    Dado a camada "<camada>"
+    Então trabalho com "<ferramentas>"
 
     Exemplos:
       | camada         | ferramentas                                    |
@@ -17,19 +15,16 @@ Funcionalidade: Caixa de ferramentas
       | Performance    | k6                                             |
       | Acessibilidade | axe-core                                       |
 
-  Cenário: Linguagens e ferramentas do dia a dia
+  Cenário: Linguagens
     Dado código de teste para escrever
-    Então as linguagens são "Java", "Python", "JavaScript" e "TypeScript"
-    E o comportamento é descrito em "Gherkin" com "Cucumber", para produto e dev lerem o mesmo teste
-    E o trabalho é organizado com "Jira" e "Git"
+    Então uso "Java", "Python", "JavaScript" ou "TypeScript"
+    E escrevo os cenários em "Gherkin" com "Cucumber"
 
   Cenário: Tipos de teste
     Dado uma entrega para validar
-    Quando a pergunta é "o que pode dar errado aqui?"
-    Então a escolha passa por testes manuais, exploratórios, de regressão, de API, web, mobile, de performance e de carga
-    Mas a automação segue a pirâmide de testes e o risco, não a vontade de automatizar tudo
+    Então faço testes manuais, exploratórios, de regressão, de API, web, mobile, de performance e de carga
 
-  Cenário: Práticas
-    Dado um time ágil trabalhando com "Scrum" ou "Kanban"
-    Então BDD, Shift Left e critérios de aceite bem definidos fazem parte da rotina
-    E teste flaky é tratado como bug: investigado, corrigido ou removido
+  Cenário: Dia a dia
+    Dado um time ágil, com "Scrum" ou "Kanban"
+    Então trabalho com BDD, Shift Left e critérios de aceite
+    E organizo as tarefas no "Jira" e o código no "Git"

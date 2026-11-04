@@ -2,7 +2,6 @@
 
 @education
 Feature: Education, certifications and languages
-  Testing well is also something you study
 
   Scenario Outline: Certification <certification>
     Given the certification "<certification>"
@@ -17,7 +16,6 @@ Feature: Education, certifications and languages
   Scenario: Postgraduate studies
     Given the course "Postgraduate Certificate in Software Architecture"
     Then I studied at "FIAP" from 2024 to 2025
-    And that architecture view helps spot where systems tend to fail
 
   Scenario: Degree
     Given the course "Associate Degree in Systems Analysis and Development"
@@ -25,5 +23,5 @@ Feature: Education, certifications and languages
 
   Scenario: Languages
     Given someone wants to talk to me
-    Then it can be in "Portuguese", as a native speaker
-    And also in "English", at an advanced professional working level
+    Then it can be in "Portuguese", my native language
+    And also in "English", which I use at work at an advanced level

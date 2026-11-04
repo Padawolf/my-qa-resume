@@ -14,6 +14,8 @@ interface Props {
   base: string;
 }
 
+const GITHUB_URL = 'https://github.com/Padawolf/my-qa-resume';
+
 type ReportState = { status: 'loading' } | { status: 'none' } | { status: 'ready'; report: RunReport };
 type Phase = 'idle' | 'running' | 'done';
 
@@ -284,19 +286,17 @@ export default function Ide({ lang, files, base }: Props) {
                     <span className="dir">features/</span>
                     <ul>{contentFiles.map(fileButton)}</ul>
                   </li>
-                  <li>
-                    <span className="dir" title={t.e2eHint}>
-                      e2e/ <span className="badge">CI</span>
-                    </span>
-                    <ul>{files.filter((f) => f.dir === 'e2e').map(fileButton)}</ul>
-                  </li>
-                  <li>
-                    <span className="dir">steps/</span>
-                    <ul>{files.filter((f) => f.dir === 'steps').map(fileButton)}</ul>
-                  </li>
                 </ul>
               </li>
             </ul>
+            <div className="links">
+              <a href={baseUrl + t.resumeFile} download data-testid="resume-link">
+                ⤓ {t.resume}
+              </a>
+              <a href={GITHUB_URL} target="_blank" rel="noopener" data-testid="github-link">
+                ↗ {t.github}
+              </a>
+            </div>
             <div className="card">
               <p className="name">Natalia Pandolfi</p>
               <p>

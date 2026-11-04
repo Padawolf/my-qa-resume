@@ -40,11 +40,12 @@ src/
   i18n/ui.ts              textos da interface nos dois idiomas
 tests/
   unit/                   Vitest
-  e2e/features/pt/        cenários E2E em português, contra o site em português (pasta e2e/ do site)
+  e2e/features/pt/        cenários E2E em português, contra o site em português
   e2e/features/en/        os mesmos cenários em inglês, contra o site em inglês
-  e2e/steps/site.steps.ts step definitions, cada passo nas duas línguas (também aparece no site)
+  e2e/steps/site.steps.ts step definitions, cada passo nas duas línguas
   e2e/fixtures/           relatórios falsos usados para simular a rede
 scripts/
+  build-resume.mjs        gera o currículo em PDF (pt e en) em public/
   summarize-report.mjs    converte reports/cucumber.json em last-run.json
 ```
 

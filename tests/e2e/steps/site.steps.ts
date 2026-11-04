@@ -72,6 +72,31 @@ step(Then, 'o editor contém {string}', 'the editor contains {string}', async ({
   await expect(page.getByTestId('code')).toContainText(texto);
 });
 
+/* ---------- Currículo e GitHub / Résumé and GitHub ---------- */
+
+step(
+  Then,
+  'o link do currículo baixa o arquivo {string}',
+  'the résumé link downloads the file {string}',
+  async ({ page }, arquivo: string) => {
+    const [download] = await Promise.all([page.waitForEvent('download'), page.getByTestId('resume-link').click()]);
+    expect(download.suggestedFilename()).toBe(arquivo);
+    // Confere que é um PDF de verdade, e não uma página 404.
+    const stream = await download.createReadStream();
+    const inicio = await new Promise<string>((resolve, reject) => {
+      stream.once('data', (chunk) => resolve(chunk.toString('latin1', 0, 5)));
+      stream.once('error', reject);
+    });
+    expect(inicio).toBe('%PDF-');
+  },
+);
+
+step(Then, 'o link do GitHub abre {string}', 'the GitHub link opens {string}', async ({ page }, url: string) => {
+  const link = page.getByTestId('github-link');
+  await expect(link).toHaveAttribute('href', url);
+  await expect(link).toHaveAttribute('target', '_blank');
+});
+
 /* ---------- Celular / Phone ---------- */
 
 step(Given, 'que estou usando um celular', 'I am using a phone', async ({ page }) => {

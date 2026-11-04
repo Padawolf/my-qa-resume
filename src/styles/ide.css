@@ -136,6 +136,10 @@ a { color: inherit; }
 .tree .ext-ts::before { content: '⌘ '; color: #000055; }
 .tree .file[aria-current='true']::before { color: var(--kw); }
 
+.links { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; font-size: 20px; }
+.links a { background: var(--ink); color: var(--kw); padding: 2px 8px; text-decoration: none; }
+.links a:hover, .links a:focus-visible { background: var(--editor); }
+
 .card { margin-top: 18px; border-top: 1px solid rgba(0, 0, 0, 0.4); padding-top: 10px; }
 .card p { margin: 0; color: #001a33; }
 .card .name { font-size: 26px; color: var(--ink); margin-bottom: 2px; }

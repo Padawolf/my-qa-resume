@@ -31,6 +31,12 @@ Feature: Browse the IDE files
       | about_me.feature  |
       | education.feature |
 
+  Scenario: Download the PDF résumé
+    Then the résumé link downloads the file "resume-natalia-pandolfi.pdf"
+
+  Scenario: See the code on GitHub
+    Then the GitHub link opens "https://github.com/Padawolf/my-qa-resume"
+
   @mobile
   Scenario: Use the site on a phone
     Given I am using a phone

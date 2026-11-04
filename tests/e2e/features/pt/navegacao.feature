@@ -31,6 +31,12 @@ Funcionalidade: Navegar pelos arquivos da IDE
       | sobre_mim.feature |
       | formacao.feature  |
 
+  Cenário: Baixar o currículo em PDF
+    Então o link do currículo baixa o arquivo "curriculo-natalia-pandolfi.pdf"
+
+  Cenário: Ver o código no GitHub
+    Então o link do GitHub abre "https://github.com/Padawolf/my-qa-resume"
+
   @mobile
   Cenário: Usar o site no celular
     Dado que estou usando um celular

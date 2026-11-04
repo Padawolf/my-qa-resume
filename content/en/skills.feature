@@ -1,13 +1,11 @@
 # language: en
 
 @skills
-Feature: Toolbox
-  A good tool is the one that solves the team's problem
+Feature: Skills
 
-  Scenario Outline: Automate <layer> tests
-    Given a system with a "<layer>" layer
-    When it needs automated tests
-    Then the choice is "<tools>"
+  Scenario Outline: <layer> testing
+    Given the "<layer>" layer
+    Then I work with "<tools>"
 
     Examples:
       | layer         | tools                                          |
@@ -17,19 +15,16 @@ Feature: Toolbox
       | Performance   | k6                                             |
       | Accessibility | axe-core                                       |
 
-  Scenario: Everyday languages and tools
+  Scenario: Languages
     Given test code to write
-    Then the languages are "Java", "Python", "JavaScript" and "TypeScript"
-    And behaviour is described in "Gherkin" with "Cucumber", so product and devs read the same test
-    And the work is organised with "Jira" and "Git"
+    Then I use "Java", "Python", "JavaScript" or "TypeScript"
+    And I write the scenarios in "Gherkin" with "Cucumber"
 
   Scenario: Testing types
     Given a delivery to validate
-    When the question is "what could go wrong here?"
-    Then the choice ranges across manual, exploratory, regression, API, web, mobile, performance and load testing
-    But automation follows the test pyramid and the risk, not the urge to automate everything
+    Then I do manual, exploratory, regression, API, web, mobile, performance and load testing
 
-  Scenario: Practices
-    Given an agile team working with "Scrum" or "Kanban"
-    Then BDD, Shift Left and well-defined acceptance criteria are part of the routine
-    And a flaky test is treated as a bug: investigated, fixed or deleted
+  Scenario: Day to day
+    Given an agile team, using "Scrum" or "Kanban"
+    Then I work with BDD, Shift Left and acceptance criteria
+    And I track tasks in "Jira" and code in "Git"
