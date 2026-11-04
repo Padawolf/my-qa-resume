@@ -7,7 +7,7 @@ const PORT = Number(process.env.PORT ?? 4321);
 const BASE_URL = `http://127.0.0.1:${PORT}${BASE_PATH}`;
 
 const testDir = defineBddConfig({
-  features: 'tests/e2e/features/*.feature',
+  features: 'tests/e2e/features/**/*.feature',
   steps: 'tests/e2e/steps/*.ts',
 });
 

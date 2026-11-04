@@ -82,6 +82,24 @@ export function totals(report: RunReport): Totals {
   return { scenarios: sc, steps: st };
 }
 
+/** Idioma da feature pela pasta: tests/e2e/features/pt/... ou tests/e2e/features/en/... */
+const LANG_DIR = /\/features\/(pt|en)\//;
+
+/**
+ * O CI roda as features E2E nas duas línguas. A janela Saída mostra só as do idioma da página.
+ * Features sem pasta de idioma (relatórios antigos) aparecem nos dois. Se o filtro não deixar
+ * nada, mostra o relatório inteiro, para a janela nunca ficar vazia.
+ */
+export function reportForLang(report: RunReport, lang: Lang): RunReport {
+  const features = report.features.filter((f) => {
+    const m = f.uri?.replace(/\\/g, '/').match(LANG_DIR);
+    return !m || m[1] === lang;
+  });
+  if (features.length === 0 || features.length === report.features.length) return report;
+  const durationMs = features.reduce((sum, f) => sum + f.scenarios.reduce((s, sc) => s + sc.durationMs, 0), 0);
+  return { ...report, features, durationMs };
+}
+
 /** Mesmo formato do Cucumber: 0m4.213s */
 export function formatDuration(ms: number): string {
   const totalSeconds = Math.max(0, ms) / 1000;

@@ -3,16 +3,18 @@
 @e2e @performance
 Funcionalidade: Teste de performance com bugs
   Como visitante do site
-  Quero soltar bugs na tela
-  Para ver se a IDE aguenta a carga
+  Quero soltar bugs numa janela de jogo
+  Para ver se a IDE aguenta a carga e corrigir o que der
 
   Contexto:
     Dado que abri o site em "português"
+    E que abri o teste de performance
 
   Cenário: Soltar uma quantidade normal de bugs
     Quando eu escolho 50 bugs
     E eu solto os bugs
     Então o contador de FPS aparece na tela
+    E os bugs caem só dentro da janela do jogo
     E o teste de performance mostra "50 bugs em"
     E o teste de performance mostra "FPS médio"
     E o teste de performance mostra "foram para produção"
@@ -31,6 +33,12 @@ Funcionalidade: Teste de performance com bugs
     Quando eu escolho 20 bugs
     E eu solto os bugs
     Então o teste de performance mostra "Movimento reduzido"
+
+  @a11y
+  Cenário: Fechar o jogo pelo teclado
+    Então a página não tem violações de acessibilidade graves
+    Quando eu pressiono "Escape"
+    Então o teste de performance está fechado
 
   Cenário: Um bilhão de bugs derruba o sistema de propósito
     Quando eu escolho 1000000000 bugs

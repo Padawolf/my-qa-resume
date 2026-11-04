@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent } from 'react';
 import type { IdeFile, Lang } from '../data/types';
 import { highlight } from '../lib/highlight';
-import { formatNoReport, formatRun, isRunReport } from '../lib/report';
+import { formatNoReport, formatRun, isRunReport, reportForLang } from '../lib/report';
 import type { OutLine, RunReport } from '../lib/report';
 import { UI } from '../i18n/ui';
 import PerfTest from './PerfTest';
@@ -80,7 +80,7 @@ export default function Ide({ lang, files, base }: Props) {
         if (!alive) return;
         if (isRunReport(data)) {
           setReport({ status: 'ready', report: data });
-          setOut(formatRun(data, lang));
+          setOut(formatRun(reportForLang(data, lang), lang));
         } else {
           setReport({ status: 'none' });
           setOut(formatNoReport(lang));
@@ -99,7 +99,7 @@ export default function Ide({ lang, files, base }: Props) {
 
   const run = useCallback(() => {
     if (phase === 'running' || report.status === 'loading') return;
-    const all = report.status === 'ready' ? formatRun(report.report, lang) : formatNoReport(lang);
+    const all = report.status === 'ready' ? formatRun(reportForLang(report.report, lang), lang) : formatNoReport(lang);
     clearTimers();
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
