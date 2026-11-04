@@ -98,6 +98,37 @@ Then('a saída mostra {string}', async ({ page }, texto: string) => {
   await expect(page.getByTestId('output')).toContainText(texto, { timeout: 10_000 });
 });
 
+/* ---------- Teste de performance ---------- */
+
+When('eu escolho {int} bugs', async ({ page }, quantidade: number) => {
+  await page.getByTestId('perf-count').fill(String(quantidade));
+});
+
+When('eu solto os bugs', async ({ page }) => {
+  await page.getByTestId('perf-run').click();
+});
+
+Then('o teste de performance mostra {string}', async ({ page }, texto: string) => {
+  // A chuva de bugs leva alguns segundos até o último bug sair da tela.
+  await expect(page.getByTestId('perf-output')).toContainText(texto, { timeout: 15_000 });
+});
+
+Then('o contador de FPS aparece na tela', async ({ page }) => {
+  await expect(page.getByTestId('perf-hud')).toContainText('FPS');
+});
+
+Given('que prefiro movimento reduzido', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+});
+
+Then('a tela de erro previsto está visível', async ({ page }) => {
+  await expect(page.getByRole('alertdialog', { name: 'ERRO PREVISTO' })).toBeVisible();
+});
+
+Then('a tela de erro previsto não está visível', async ({ page }) => {
+  await expect(page.getByTestId('crash')).toBeHidden();
+});
+
 /* ---------- Acessibilidade ---------- */
 
 Then('a página não tem violações de acessibilidade graves', async ({ page }) => {

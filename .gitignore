@@ -1,9 +1,36 @@
+# Dependências
 node_modules/
+
+# Build do Astro
 dist/
 .astro/
+
+# Testes: arquivos gerados pelo playwright-bdd e relatórios
 .features-gen/
 reports/
 test-results/
 playwright-report/
+blob-report/
+playwright/.cache/
+coverage/
+
+# Gerado pelo `npm run report` (no CI vai direto para dist/)
 public/last-run.json
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea/

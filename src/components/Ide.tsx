@@ -5,6 +5,7 @@ import { highlight } from '../lib/highlight';
 import { formatNoReport, formatRun, isRunReport } from '../lib/report';
 import type { OutLine, RunReport } from '../lib/report';
 import { UI } from '../i18n/ui';
+import PerfTest from './PerfTest';
 
 interface Props {
   lang: Lang;
@@ -269,47 +270,50 @@ export default function Ide({ lang, files, base }: Props) {
       </nav>
 
       <main className="desk">
-        <aside className="win proj" aria-label={t.project}>
-          <span className="wbtn l" aria-hidden="true">
-            [<b>■</b>]
-          </span>
-          <span className="wtitle">{t.project}</span>
-          <ul className="tree">
-            <li>
-              <span className="dir">natalia-pandolfi-qa/</span>
-              <ul>
-                <li>
-                  <span className="dir">features/</span>
-                  <ul>{contentFiles.map(fileButton)}</ul>
-                </li>
-                <li>
-                  <span className="dir" title={t.e2eHint}>
-                    e2e/ <span className="badge">CI</span>
-                  </span>
-                  <ul>{files.filter((f) => f.dir === 'e2e').map(fileButton)}</ul>
-                </li>
-                <li>
-                  <span className="dir">steps/</span>
-                  <ul>{files.filter((f) => f.dir === 'steps').map(fileButton)}</ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div className="card">
-            <p className="name">Natalia Pandolfi</p>
-            <p>
-              {t.role}
-              <br />
-              {t.company}
-            </p>
-            <div className="tags">
-              <span>@web</span>
-              <span>@mobile</span>
-              <span>@api</span>
-              <span>@performance</span>
+        <div className="side">
+          <aside className="win proj" aria-label={t.project}>
+            <span className="wbtn l" aria-hidden="true">
+              [<b>■</b>]
+            </span>
+            <span className="wtitle">{t.project}</span>
+            <ul className="tree">
+              <li>
+                <span className="dir">natalia-pandolfi-qa/</span>
+                <ul>
+                  <li>
+                    <span className="dir">features/</span>
+                    <ul>{contentFiles.map(fileButton)}</ul>
+                  </li>
+                  <li>
+                    <span className="dir" title={t.e2eHint}>
+                      e2e/ <span className="badge">CI</span>
+                    </span>
+                    <ul>{files.filter((f) => f.dir === 'e2e').map(fileButton)}</ul>
+                  </li>
+                  <li>
+                    <span className="dir">steps/</span>
+                    <ul>{files.filter((f) => f.dir === 'steps').map(fileButton)}</ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div className="card">
+              <p className="name">Natalia Pandolfi</p>
+              <p>
+                {t.role}
+                <br />
+                {t.company}
+              </p>
+              <div className="tags">
+                <span>@web</span>
+                <span>@mobile</span>
+                <span>@api</span>
+                <span>@performance</span>
+              </div>
             </div>
-          </div>
-        </aside>
+          </aside>
+          <PerfTest lang={lang} />
+        </div>
 
         <section className="win editor" aria-label={t.editor}>
           <span className="wbtn l" aria-hidden="true">

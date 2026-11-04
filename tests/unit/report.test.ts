@@ -84,7 +84,7 @@ describe('cucumberToRun', () => {
   ];
 
   it('soma o Contexto em cada cenário e converte nanossegundos', () => {
-    const run = cucumberToRun(cucumberJson, { generatedAt: '2026-11-04T00:00:00.000Z', commit: 'abc1234' });
+    const run: RunReport = cucumberToRun(cucumberJson, { generatedAt: '2026-11-04T00:00:00.000Z', commit: 'abc1234' });
     expect(isRunReport(run)).toBe(true);
     const [ok, fail] = run.features[0].scenarios;
     expect(ok).toEqual({ name: 'Abrir um arquivo', status: 'passed', durationMs: 450, steps: { passed: 3, failed: 0, skipped: 0 } });
